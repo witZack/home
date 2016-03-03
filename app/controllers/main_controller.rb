@@ -6,7 +6,7 @@ class MainController < ApplicationController
     @skills = skills
     @about = about
     @interests = interests
-    @profile_image = profile_image
+    @profile = profile
   end
 
   private
@@ -42,7 +42,7 @@ class MainController < ApplicationController
 
     ]
   end
-  def profile_image()
-    "assets/images/profile.jpg"
+  def profile()
+    Profile.new("Whitney Zack", "profile.jpg", "Software Engineer", "Senior Software Engineer", "UnderArmour")
   end
 end

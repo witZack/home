@@ -14,4 +14,67 @@
  *= require_self
  */
 
- require 'bootstrap'
+body {
+  background-color: #d9d9d9;
+}
+
+#profile {
+    border-width:1px;
+    border-color: #fff;
+    border-style:solid;
+}
+
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.row {
+  border-width:1px;
+  border-color: #fff;
+  border-style:solid;
+}
+
+/*
+  Profile card css
+  */
+#profile-card-wrapper{
+  padding: 5px;
+}
+
+.profile-card {
+  background: #ffffff;
+  border: 1px solid #e6e6e6;
+  border-radius: 3px;
+  min-height: 300px;
+  padding: 10px;
+}
+
+@media (max-width: 992px) {
+  #profile-card-wrapper {
+    position: relative;
+  }
+}
+
+.profile-pic {
+  padding: 20px 0;
+}
+
+@media (max-width: 992px) {
+  .profile-pic {
+    padding: 10px 0;
+  }
+}
+
+.profile-pic img {
+  width: 200px;
+  height: 200px;
+}
+
+@media (max-width: 992px) {
+  .name {
+    margin-top: 10px;
+  }
+}
