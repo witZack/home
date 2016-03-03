@@ -1,0 +1,10 @@
+<div>
+  <h4><%= skill.name %></h4>
+  <div class="skill-nodes">
+      <% skill.branches.each do |branch| %>
+        <span class="skill-branch">
+          <%= branch %>
+        </span>
+      <% end %>
+  </div>
+</div>

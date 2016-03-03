@@ -1,0 +1,35 @@
+<div>
+  <p>
+    <strong><%= experience.jobTitle %></strong>,
+    <% if !experience.employerLink.nil? %>
+      <a href=<%= experience.employerLink %>>
+        <%= experience.employer %>
+      </a>
+    <% else %>
+      <%= experience.employer %>
+    <% end %>
+  </p>
+  <% if !experience.startDate.nil? %>
+    <small>
+      <span>
+        <%= experience.startDate.to_date %> -
+        <% if !experience.endDate.nil? %>
+          <%= experience.endDate.to_date %>
+        <% else %>
+          Present
+        <% end %>
+      </span>
+      <i class="fa fa-clock-o">
+        <% if experience.employmentLength > 1 %>
+          <%=experience.employmentLength%> years
+        <% else %>
+          <%=[(experience.employmentLength*12).round,1].max%> months
+        <% end %>
+      </i>
+    </small>
+  <% end %>
+  <ul>
+    <% experience.details.each do |detail| %>
+      <li>detail</li>
+    <% end %>
+</div>

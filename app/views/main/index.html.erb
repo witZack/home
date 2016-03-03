@@ -1,0 +1,65 @@
+<div id="container" class="container">
+  <div id="section" class="row">
+    <div id="profile-wrapper" class="col-md-4">
+      <div id="profile-card">
+        <span id="profile-pic-container">
+          <div id="profile-pic">
+          </div>
+        </span>
+      </div>
+      one
+    </div>
+    <div id="background" class="col-md-8">
+      <div id="background-details" class="container">
+        <div id="about" class="row">
+          <div class="detail-icon col-md-1">
+            <div class="fa fa-user">
+            </div>
+          </div>
+          <div class="detail-content col-md-5">
+            <%= @about.nil? ? "" : @about%>
+          </div>
+        </div>
+        <div id="experience" class="row">
+          <div class="detail-icon col-md-1">
+            <div class="fa fa-building">
+            </div>
+          </div>
+          <div class="detail-content col-md-5">
+            <% if !@experiences.nil? %>
+              <% @experiences.each do |experience| %>
+                <%= render partial: "experience", object: experience %>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+        <div id="skills" class="row">
+          <div class="detail-icon col-md-1">
+            <div class="fa fa-code">
+            </div>
+          </div>
+          <div class="detail-content col-md-5">
+            <% if !@skills.nil? %>
+              <% @skills.each do |skill| %>
+                <%= render partial: "skill", object: skill %>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+        <div id="interests" class="row">
+          <div class="detail-icon col-md-1">
+            <div class="fa fa-heart">
+            </div>
+          </div>
+          <div class="detail-content col-md-5">
+              <% if !@interests.nil? %>
+                <% @interests.each do |interest| %>
+                  <%= render partial: "interest", object: interest %>
+                <% end %>
+              <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
