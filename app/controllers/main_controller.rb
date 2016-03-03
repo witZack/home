@@ -29,6 +29,7 @@ class MainController < ApplicationController
         DateTime.new(2013,1,10))
     ]
   end
+  # Your skills
   def skills()
     [
       Skill.new("Languages",
