@@ -9,6 +9,10 @@ class MainController < ApplicationController
     @profile = profile
     @works = works
     @interests = interests
+    @linkedin = "www.linkedin.com/in/whitneyzack"
+    @twitter = "https://twitter.com/Nom_De_PIume"
+    @facebook = "https://www.facebook.com/wcz8292"
+    @github = "https://github.com/witZack"
   end
 
   private

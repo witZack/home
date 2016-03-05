@@ -62,10 +62,21 @@
 				  </div>
 				  <hr>
 				  <div class="social-links text-center">
-					  <a class="fa fa-linkedin fa-2x social-link link-linkedin" href="https://www.linkedin.com/in/hhellbusch"></a>
-					  <a class="fa fa-github fa-2x social-link link-github" href="https://github.com/hhellbusch/"></a>
-					  <a class="fa fa-google-plus fa-2x social-link link-google-plus" href="https://plus.google.com/+HenryHellbusch/"></a>
-					  <a class="fa fa-facebook fa-2x social-link link-facebook" href="http://www.facebook.com/hhellbusch"></a>
+					  <% if !@linkedin.nil? %>
+							<a class="fa fa-linkedin-square fa-2x social-link link-linkedin" href=<%= @linkedin %>></a>
+						<% end %>
+					  <% if !@github.nil? %>
+					  	<a class="fa fa-github-square fa-2x social-link link-github" href=<%= @github %>></a>
+						<% end %>
+					  <% if !@google_plus.nil? %>
+					  	<a class="fa fa-google-plus-square fa-2x social-link link-google-plus" href=<%= @google_plus %>></a>
+						<% end %>
+					  <% if !@facebook.nil? %>
+					  	<a class="fa fa-facebook-square fa-2x social-link link-facebook" href=<%= @facebook %>></a>
+						<% end %>
+					  <% if !@twitter.nil? %>
+					  	<a class="fa fa-twitter-square fa-2x social-link link-twitter" href=<%= @twitter %>></a>
+						<% end %>
 				  </div>
 			  </div>
 			</section>
