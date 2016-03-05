@@ -6,13 +6,10 @@ class MainController < ApplicationController
     @skills = skills
     @about = about
     @interests = interests
-    @profile = profile
+    # Profile information loaded
+    @profile = Profile.fromEnv()
     @works = works
     @interests = interests
-    @linkedin = "www.linkedin.com/in/whitneyzack"
-    @twitter = "https://twitter.com/Nom_De_PIume"
-    @facebook = "https://www.facebook.com/wcz8292"
-    @github = "https://github.com/witZack"
   end
 
   private
@@ -55,8 +52,5 @@ class MainController < ApplicationController
         "A personal site capable of being cloned and configured for other users",
         "https://github.com/witZack/personal-site")
     ]
-  end
-  def profile()
-    Profile.new("Whitney Zack", "profile.jpg", "Software Engineer", "Senior Software Engineer", "UnderArmour")
   end
 end

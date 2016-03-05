@@ -13,4 +13,13 @@ class Profile
     @jobTitle=jobTitle
     @company=company
   end
+
+  def self.fromEnv()
+    self.new(ENV["PROFILE_NAME"],
+    ENV["PROFILE_IMAGE_LINK"],
+    ENV["PROFILE_PROFESSION"],
+    ENV["PROFILE_JOBTITLE"],
+    ENV["PROFILE_COMPANY"])
+  end
+
 end

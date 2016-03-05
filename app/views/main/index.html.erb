@@ -17,40 +17,40 @@
 				  </span>
 				  <hr>
 				  <div class="contact-details clearfix">
-					  <div class="detail">
-						<span class="icon">
-						  <i class="fa fa-lg fa-location-arrow"></i>
-						</span>
-						<span class="info">
-						  Washington D.C. Metro Area
-						</span>
-					  </div>
-					  <div class="detail">
-						<span class="icon">
-						  <i class="fa fa-lg fa-envelope"></i>
-						</span>
-						<span class="info">
-							<span style="unicode-bidi:bidi-override; direction: rtl;">
-								<a href="mailto:hhellbusch@gmail.com">moc.liamg@hcsubllehh</a>
-							</span>
-						</span>
-					  </div>
-					  <div class="detail">
-						<span class="icon">
-						  <i class="fa fa-lg fa-skype"></i>
-						</span>
-						<span class="info" itemprop="skype">
-						  <a href="skype:henry.hellbusch?add&amp;displayname=Henry+Hellbusch">henry.hellbusch</a>
-						</span>
-					  </div>
-					  <div class="detail">
-						<span class="icon">
-						  <i class="fa fa-lg fa-link"></i>
-						</span>
-						<span class="info">
-						  <a href="http://henryhellbusch.com/" target="_blank">http://henryhellbusch.com</a>
-						</span>
-					  </div>
+						<% if !ENV["PROFILE_LOCATION"].nil? %>
+						  <div class="detail">
+								<span class="icon">
+								  <i class="fa fa-lg fa-location-arrow"></i>
+								</span>
+								<span class="info">
+								  <%= ENV["PROFILE_LOCATION"] %>
+								</span>
+						  </div>
+						<% end %>
+						<% if !ENV["PROFILE_EMAIL"].nil? %>
+						  <div class="detail">
+								<span class="icon">
+								  <i class="fa fa-lg fa-envelope"></i>
+								</span>
+								<span class="info">
+									<span style="unicode-bidi:bidi-override; direction: rtl;">
+										<a href=<%= "mailto:" + ENV["PROFILE_EMAIL"] %>><%= ENV["PROFILE_EMAIL"].reverse %></a>
+									</span>
+								</span>
+						  </div>
+						<% end %>
+						<% if !ENV["SKYPE_USERNAME"].nil? && !ENV["SKYPE_DISPLAY_NAME"].nil? %>
+						  <div class="detail">
+								<span class="icon">
+								  <i class="fa fa-lg fa-skype"></i>
+								</span>
+								<span class="info" itemprop="skype">
+								  <a href=<%="skype:" + ENV["SKYPE_USERNAME"] + "?add&amp;displayname=" + ENV["SKYPE_DISPLAY_NAME"] %>>
+										<%= ENV["SKYPE_DISPLAY_NAME"] %>
+									</a>
+								</span>
+						  </div>
+						<% end %>
 					  <div class="detail">
 						<span class="icon" title="Languages I speak">
 						  <i class="fa fa-lg fa-language"></i>
@@ -62,20 +62,20 @@
 				  </div>
 				  <hr>
 				  <div class="social-links text-center">
-					  <% if !@linkedin.nil? %>
-							<a class="fa fa-linkedin-square fa-2x social-link link-linkedin" href=<%= @linkedin %>></a>
+					  <% if !ENV["LINKEDIN_LINK"].nil? %>
+							<a class="fa fa-linkedin-square fa-2x social-link link-linkedin" href=<%= ENV["LINKEDIN_LINK"] %>></a>
 						<% end %>
-					  <% if !@github.nil? %>
-					  	<a class="fa fa-github-square fa-2x social-link link-github" href=<%= @github %>></a>
+					  <% if !ENV["GITHUB_LINK"].nil? %>
+					  	<a class="fa fa-github-square fa-2x social-link link-github" href=<%= ENV["GITHUB_LINK"] %>></a>
 						<% end %>
-					  <% if !@google_plus.nil? %>
-					  	<a class="fa fa-google-plus-square fa-2x social-link link-google-plus" href=<%= @google_plus %>></a>
+					  <% if !ENV["GOOGLE_PLUS_LINK"].nil? %>
+					  	<a class="fa fa-google-plus-square fa-2x social-link link-google-plus" href=<%= ENV["GOOGLE_PLUS_LINK"] %>></a>
 						<% end %>
-					  <% if !@facebook.nil? %>
-					  	<a class="fa fa-facebook-square fa-2x social-link link-facebook" href=<%= @facebook %>></a>
+					  <% if !ENV["FACEBOOK_LINK"].nil? %>
+					  	<a class="fa fa-facebook-square fa-2x social-link link-facebook" href=<%= ENV["FACEBOOK_LINK"] %>></a>
 						<% end %>
-					  <% if !@twitter.nil? %>
-					  	<a class="fa fa-twitter-square fa-2x social-link link-twitter" href=<%= @twitter %>></a>
+					  <% if !ENV["TWITTER_LINK"].nil? %>
+					  	<a class="fa fa-twitter-square fa-2x social-link link-twitter" href=<%= ENV["TWITTER_LINK"] %>></a>
 						<% end %>
 				  </div>
 			  </div>
