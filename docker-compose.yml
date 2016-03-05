@@ -12,4 +12,22 @@ app:
   links:
     - db
   environment:
+    # RAILS ENVIRONMENT
     - RAILS_ENV=development
+    # SOCIAL LINKS
+    - LINKEDIN_LINK=https://www.linkedin.com
+    - TWITTER_LINK=https://twitter.com
+    - FACEBOOK_LINK=https://www.facebook.com
+    - GITHUB_LINK=https://github.com
+    - SKYPE_USERNAME=John.Doe
+    - SKYPE_DISPLAY_NAME=John.Doe
+    # PROFILE INFORMATION
+    # - PROFILE_IMAGE_LINK=profile.jpg
+    - PROFILE_NAME=John Doe
+    - PROFILE_PROFESSION=Wanderer
+    - PROFILE_JOBTITLE=CEO
+    - PROFILE_COMPANY=Wanderer LLC.
+    - PROFILE_LOCATION=Nowhere
+    - PROFILE_EMAIL=jDoe@wanderer.com
+    # LANGUAGES
+    - LANGUAGES=English
