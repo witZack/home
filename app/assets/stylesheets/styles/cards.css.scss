@@ -1,0 +1,36 @@
+.card {
+ background: #ffffff;
+ border: 1px solid #e6e6e6;
+ border-radius: 3px;
+ min-height: 300px;
+ padding: 10px;
+}
+.card-nested {
+ min-height: 0;
+ margin-bottom: 10px;
+ border-width: 1px 0 0 0;
+}
+.card-nested:before,
+.card-nested:after {
+ content: " ";
+ display: table;
+}
+.card-nested:after {
+ clear: both;
+}
+@media (max-width: 480px) {
+ .card-nested {
+   padding: 5px 0;
+ }
+}
+.background-card {
+ padding: 10px 20px;
+}
+.card-wrapper {
+ padding: 5px;
+}
+@media (max-width: 992px) {
+ .card-wrapper {
+   float: none !important;
+ }
+}
