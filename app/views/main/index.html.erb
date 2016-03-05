@@ -1,74 +1,183 @@
-<div id="container" class="container">
-  <div id="section" class="row">
-    <div id="profile-card-wrapper" class="col-md-4">
-      <div class="profile-card">
-        <span class="profile-pic-container">
-          <div class="profile-pic">
-            <img class="media-object img-circle center-block"
-              alt="Profile Image"
-              itemprop="image"
-              src=<%= @profile.image %>>
-          </div>
-        </span>
-        <div class="name and profession">
-          <h3 class="text-center text-bolder name" itemprop="name"><%= @profile.name %></h3>
-          <h5 class="text-muted text-center" itemprop="jobTitle"><%= @profile.profession %></h5>
-          <h5 class="text-muted text-center" itemprop="jobTitle"><%= @profile.jobTitle %> @ <%= @profile.company %></h5>
-        </div>
-      </div>
-      one
-    </div>
-    <div id="background" class="col-md-8">
-      <div id="background-details" class="container">
-        <div id="about" class="row">
-          <div class="detail-icon col-md-1">
-            <div class="fa fa-user">
-            </div>
-          </div>
-          <div class="detail-content col-md-5">
-            <%= @about.nil? ? "" : @about%>
-          </div>
-        </div>
-        <div id="experience" class="row">
-          <div class="detail-icon col-md-1">
-            <div class="fa fa-building">
-            </div>
-          </div>
-          <div class="detail-content col-md-5">
-            <% if !@experiences.nil? %>
-              <% @experiences.each do |experience| %>
-                <%= render partial: "experience", object: experience %>
-              <% end %>
-            <% end %>
-          </div>
-        </div>
-        <div id="skills" class="row">
-          <div class="detail-icon col-md-1">
-            <div class="fa fa-code">
-            </div>
-          </div>
-          <div class="detail-content col-md-5">
-            <% if !@skills.nil? %>
-              <% @skills.each do |skill| %>
-                <%= render partial: "skill", object: skill %>
-              <% end %>
-            <% end %>
-          </div>
-        </div>
-        <div id="interests" class="row">
-          <div class="detail-icon col-md-1">
-            <div class="fa fa-heart">
-            </div>
-          </div>
-          <div class="detail-content col-md-5">
-              <% if !@interests.nil? %>
-                <% @interests.each do |interest| %>
-                  <%= render partial: "interest", object: interest %>
-                <% end %>
-              <% end %>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+	<div class="container-fluid">
+	  <div class="row main clearfix">
+			<section class="col-md-3 card-wrapper profile-card-wrapper affix">
+			  <div class="card profile-card">
+				  <span class="profile-pic-container">
+					<div class="profile-pic">
+					  <img class="media-object img-circle center-block" alt="Profile Picture"
+							src=<%= @profile.image %>
+							itemprop="image"
+							title="Profile Image">
+					</div>
+					<div class="name-and-profession">
+					  <h3 class="text-center text-bolder name" itemprop="name"><%= @profile.name %></h3>
+					  <h5 class="text-muted text-center" itemprop="jobTitle"><%= @profile.profession %></h5>
+					  <h5 class="text-muted text-center" itemprop="jobTitle"><%= @profile.jobTitle %> <%= @profile.company %></h5>
+					</div>
+				  </span>
+				  <hr>
+				  <div class="contact-details clearfix">
+					  <div class="detail">
+						<span class="icon">
+						  <i class="fa fa-lg fa-location-arrow"></i>
+						</span>
+						<span class="info">
+						  Washington D.C. Metro Area
+						</span>
+					  </div>
+					  <div class="detail">
+						<span class="icon">
+						  <i class="fa fa-lg fa-envelope"></i>
+						</span>
+						<span class="info">
+							<span style="unicode-bidi:bidi-override; direction: rtl;">
+								<a href="mailto:hhellbusch@gmail.com">moc.liamg@hcsubllehh</a>
+							</span>
+						</span>
+					  </div>
+					  <div class="detail">
+						<span class="icon">
+						  <i class="fa fa-lg fa-skype"></i>
+						</span>
+						<span class="info" itemprop="skype">
+						  <a href="skype:henry.hellbusch?add&amp;displayname=Henry+Hellbusch">henry.hellbusch</a>
+						</span>
+					  </div>
+					  <div class="detail">
+						<span class="icon">
+						  <i class="fa fa-lg fa-link"></i>
+						</span>
+						<span class="info">
+						  <a href="http://henryhellbusch.com/" target="_blank">http://henryhellbusch.com</a>
+						</span>
+					  </div>
+					  <div class="detail">
+						<span class="icon" title="Languages I speak">
+						  <i class="fa fa-lg fa-language"></i>
+						</span>
+						<span class="info">
+						  English
+						</span>
+					  </div>
+				  </div>
+				  <hr>
+				  <div class="social-links text-center">
+					  <a class="fa fa-linkedin fa-2x social-link link-linkedin" href="https://www.linkedin.com/in/hhellbusch"></a>
+					  <a class="fa fa-github fa-2x social-link link-github" href="https://github.com/hhellbusch/"></a>
+					  <a class="fa fa-google-plus fa-2x social-link link-google-plus" href="https://plus.google.com/+HenryHellbusch/"></a>
+					  <a class="fa fa-facebook fa-2x social-link link-facebook" href="http://www.facebook.com/hhellbusch"></a>
+				  </div>
+			  </div>
+			</section>
+
+			<section class="col-md-9 card-wrapper pull-right">
+			  <div class="card background-card" style="min-height: 1027px;">
+					<h4 class="text-uppercase text-bolder">Background</h4>
+					<hr>
+					<div class="background-details">
+						<% if !@about.nil? %>
+						  <div class="detail" id="about">
+								<div class="icon">
+								  <i class="fa fa-lg fa-user"></i>
+								  <span class="mobile-title">About</span>
+								</div>
+								<div class="info">
+								  <h4 class="title text-uppercase">
+									About
+								  </h4>
+								  <div class="content" itemprop="description">
+										<%= @about %>
+								  </div>
+								</div>
+						  </div>
+						<% end %>
+						<% if !@experiences.nil? %>
+					  	<div class="detail" id="work-experience">
+							<div class="icon">
+							  <i class="fa fa-lg fa-building"></i>
+							  <span class="mobile-title">Work Experience</span>
+							</div>
+							<div class="info">
+								<h4 class="title text-uppercase">
+									Work Experience
+								</h4>
+								<ul class="list-unstyled">
+		              <% @experiences.each do |experience| %>
+										<li class="card card-nested clearfix">
+		                  <%= render partial: "experience", object: experience %>
+										</li>
+		              <% end %>
+							  </ul>
+							</div>
+					  </div>
+						<% end %>
+						<% if !@skills.nil? %>
+							<div class="detail" id="skills">
+						  <div class="icon">
+								<i class="fa fa-lg fa-code"></i>
+								<span class="mobile-title">Skills</span>
+						  </div>
+						  <div class="info">
+								<h4 class="title text-uppercase">
+								  Skills
+								</h4>
+								<div class="content">
+								  <ul class="list-unstyled">
+			              <% @skills.each do |skill| %>
+								  		<li class="card card-nested card-skills">
+			                  <%= render partial: "skill", object: skill %>
+										  </li>
+			              <% end %>
+								  </ul>
+								</div>
+						  </div>
+						</div>
+						<% end %>
+						<% if !@works.nil? %>
+							<div class="detail" id="publications">
+							  <div class="icon">
+									<i class="fa fa-lg fa-book"></i>
+									<span class="mobile-title">Professional Works</span>
+							  </div>
+							  <div class="info">
+									<h4 class="title text-uppercase">
+									  Professional Works
+									</h4>
+									<div class="content">
+									  <ul class="list-unstyled">
+				              <% @works.each do |work| %>
+									  		<li class="card card-nested">
+				                  <%= render partial: "work", object: work %>
+											  </li>
+				              <% end %>
+									  </ul>
+									</div>
+							  </div>
+							</div>
+						<% end %>
+						<% if !@interests.nil? %>
+							<div class="detail" id="interests">
+							  <div class="icon">
+									<i class="fa fa-lg fa-heart"></i>
+									<span class="mobile-title">Interests</span>
+							  </div>
+							  <div class="info">
+									<h4 class="title text-uppercase">
+									  Interests
+									</h4>
+									<div class="content">
+									  <ul class="list-unstyled">
+										  <li class="card card-nested">
+												<%= render partial: "interest", object: @interests %>
+										  </li>
+									  </ul>
+									</div>
+							  </div>
+							</div>
+						<% end %>
+				  </div>
+				</div>
+			</section>
+	  </div>
+	</div>
+</body>

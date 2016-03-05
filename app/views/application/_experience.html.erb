@@ -1,5 +1,5 @@
-<div>
-  <p>
+<div class="content">
+  <p class="clear-margin relative">
     <strong><%= experience.jobTitle %></strong>,
     <% if !experience.employerLink.nil? %>
       <a href=<%= experience.employerLink %>>
@@ -9,27 +9,30 @@
       <%= experience.employer %>
     <% end %>
   </p>
-  <% if !experience.startDate.nil? %>
-    <small>
-      <span>
-        <%= experience.startDate.to_date %> -
-        <% if !experience.endDate.nil? %>
-          <%= experience.endDate.to_date %>
-        <% else %>
-          Present
-        <% end %>
-      </span>
-      <i class="fa fa-clock-o">
-        <% if experience.employmentLength > 1 %>
-          <%=experience.employmentLength%> years
-        <% else %>
-          <%=[(experience.employmentLength*12).round,1].max%> months
-        <% end %>
-      </i>
-    </small>
-  <% end %>
+  <p class="text-muted">
+    <% if !experience.startDate.nil? %>
+      <small>
+        <span class="space-right">
+          <%= experience.startDate.to_date %> -
+          <% if !experience.endDate.nil? %>
+            <%= experience.endDate.to_date %>
+          <% else %>
+            Present
+          <% end %>
+        </span>
+        <i class="fa fa-clock-o">
+          <% if experience.employmentLength > 1 %>
+            <%=experience.employmentLength%> years
+          <% else %>
+            <%=[(experience.employmentLength*12).round,1].max%> months
+          <% end %>
+        </i>
+      </small>
+    <% end %>
+  </p>
   <ul>
     <% experience.details.each do |detail| %>
       <li>detail</li>
     <% end %>
+  </ul>
 </div>

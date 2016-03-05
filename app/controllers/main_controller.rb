@@ -7,6 +7,8 @@ class MainController < ApplicationController
     @about = about
     @interests = interests
     @profile = profile
+    @works = works
+    @interests = interests
   end
 
   private
@@ -40,7 +42,14 @@ class MainController < ApplicationController
   end
   def interests()
     [
-
+      Interest.new("Aaaaaa", ["This is a test"])
+    ]
+  end
+  def works()
+    [
+      Work.new("Personal-Site",
+        "A personal site capable of being cloned and configured for other users",
+        "https://github.com/witZack/personal-site")
     ]
   end
   def profile()

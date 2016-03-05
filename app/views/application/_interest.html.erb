@@ -1,3 +1,7 @@
-<div>
-  <%= interest.name %>
+<div class="space-top labels">
+  <% @interests.each do |interest| %>
+    <span class="label label-keyword">
+      <%= interest.name %>
+    </span>
+  <% end %>
 </div>
