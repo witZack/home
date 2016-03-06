@@ -17,13 +17,13 @@
 				  </span>
 				  <hr>
 				  <div class="contact-details clearfix">
-						<% if !ENV["PROFILE_LOCATION"].blank? %>
+						<% if !@profile.location.blank? %>
 						  <div class="detail">
 								<span class="icon">
 								  <i class="fa fa-lg fa-location-arrow"></i>
 								</span>
 								<span class="info">
-								  <%= ENV["PROFILE_LOCATION"] %>
+								  <%= @profile.location %>
 								</span>
 						  </div>
 						<% end %>
@@ -39,43 +39,45 @@
 								</span>
 						  </div>
 						<% end %>
-						<% if !ENV["SKYPE_USERNAME"].blank? && !ENV["SKYPE_DISPLAY_NAME"].blank? %>
+						<% if !@social_details.skype_username.blank? && !@social_details.skype_display_name.blank? %>
 						  <div class="detail">
 								<span class="icon">
 								  <i class="fa fa-lg fa-skype"></i>
 								</span>
 								<span class="info" itemprop="skype">
-								  <a href=<%="skype:" + ENV["SKYPE_USERNAME"] + "?add&amp;displayname=" + ENV["SKYPE_DISPLAY_NAME"] %>>
-										<%= ENV["SKYPE_DISPLAY_NAME"] %>
+								  <a href=<%="skype:" + @social_details.skype_username + "?add&amp;displayname=" + @social_details.skype_display_name %>>
+										<%= @social_details.skype_display_name %>
 									</a>
 								</span>
 						  </div>
 						<% end %>
-					  <div class="detail">
-						<span class="icon" title="Languages I speak">
-						  <i class="fa fa-lg fa-language"></i>
-						</span>
-						<span class="info">
-						  English
-						</span>
-					  </div>
+						<% if !@profile.languages_spoken.blank? %>
+						  <div class="detail">
+								<span class="icon" title="Languages I speak">
+								  <i class="fa fa-lg fa-language"></i>
+								</span>
+								<span class="info">
+								  <%= @profile.languages_spoken %>
+								</span>
+						  </div>
+						<% end %>
 				  </div>
 				  <hr>
 				  <div class="social-links text-center">
-					  <% if !ENV["LINKEDIN_LINK"].blank? %>
-							<a class="fa fa-linkedin-square fa-2x social-link link-linkedin" href=<%= ENV["LINKEDIN_LINK"] %>></a>
+					  <% if !@social_details.linkedin.blank? %>
+							<a class="fa fa-linkedin-square fa-2x social-link link-linkedin" href=<%= @social_details.linkedin %>></a>
 						<% end %>
-					  <% if !ENV["GITHUB_LINK"].blank? %>
-					  	<a class="fa fa-github-square fa-2x social-link link-github" href=<%= ENV["GITHUB_LINK"] %>></a>
+					  <% if !@social_details.github.blank? %>
+					  	<a class="fa fa-github-square fa-2x social-link link-github" href=<%= @social_details.github %>></a>
 						<% end %>
-					  <% if !ENV["GOOGLE_PLUS_LINK"].blank? %>
-					  	<a class="fa fa-google-plus-square fa-2x social-link link-google-plus" href=<%= ENV["GOOGLE_PLUS_LINK"] %>></a>
+					  <% if !@social_details.google_plus.blank? %>
+					  	<a class="fa fa-google-plus-square fa-2x social-link link-google-plus" href=<%= @social_details.google_plus %>></a>
 						<% end %>
-					  <% if !ENV["FACEBOOK_LINK"].blank? %>
-					  	<a class="fa fa-facebook-square fa-2x social-link link-facebook" href=<%= ENV["FACEBOOK_LINK"] %>></a>
+					  <% if !@social_details.facebook.blank? %>
+					  	<a class="fa fa-facebook-square fa-2x social-link link-facebook" href=<%= @social_details.facebook %>></a>
 						<% end %>
-					  <% if !ENV["TWITTER_LINK"].blank? %>
-					  	<a class="fa fa-twitter-square fa-2x social-link link-twitter" href=<%= ENV["TWITTER_LINK"] %>></a>
+					  <% if !@social_details.twitter.blank? %>
+					  	<a class="fa fa-twitter-square fa-2x social-link link-twitter" href=<%= @social_details.twitter %>></a>
 						<% end %>
 				  </div>
 			  </div>
@@ -86,7 +88,7 @@
 					<h4 class="text-uppercase text-bolder">Background</h4>
 					<hr>
 					<div class="background-details">
-						<% if !@about.blank? %>
+						<% if !@profile.about.blank? %>
 						  <div class="detail" id="about">
 								<div class="icon">
 								  <i class="fa fa-lg fa-user"></i>
@@ -97,7 +99,7 @@
 									About
 								  </h4>
 								  <div class="content" itemprop="description">
-										<%= @about %>
+										<%= @profile.about %>
 								  </div>
 								</div>
 						  </div>

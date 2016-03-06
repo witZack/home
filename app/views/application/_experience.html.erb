@@ -13,9 +13,9 @@
     <% if !experience.startDate.nil? %>
       <small>
         <span class="space-right">
-          <%= experience.startDate.to_date %> -
+          <%= experience.startDate.to_date.strftime("%Y-%m") %> -
           <% if !experience.endDate.nil? %>
-            <%= experience.endDate.to_date %>
+            <%= experience.endDate.to_date.strftime("%Y-%m") %>
           <% else %>
             Present
           <% end %>

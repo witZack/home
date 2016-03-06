@@ -1,4 +1,4 @@
-class Work
+class Works
   attr_reader :name, :description, :link
   # Constructor
   # @name Name of the work
@@ -8,5 +8,16 @@ class Work
     @name=name
     @description=description
     @link=link
+  end
+
+  def self.fromYaml()
+    yaml = YAML::load(File.open(Rails.root + "app/models/seeds/dev/works.yaml"))["works"]
+    arr = []
+    yaml.each do |item|
+      arr << self.new(item[:name],
+        item[:description],
+        item[:link])
+    end
+    arr
   end
 end

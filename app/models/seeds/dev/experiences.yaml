@@ -1,0 +1,21 @@
+# Experience Information
+---
+experiences:
+  - :employer: The Wanderer LLC
+    :employer_link: profile.jpg
+    :job_title: CEO
+    :details:
+      - Did some stuff
+    :start_year: 2012
+    :start_month: 1
+    :end_year: 2013
+    :end_month: 3
+  - :employer: Self Employed
+    :employer_link: profile.jpg
+    :job_title: The Legend
+    :details:
+      - Did some stuff
+    :start_year: 2010
+    :start_month: 1
+    :end_year: 2012
+    :end_month: 1
