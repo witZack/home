@@ -17,7 +17,7 @@
 				  </span>
 				  <hr>
 				  <div class="contact-details clearfix">
-						<% if !ENV["PROFILE_LOCATION"].nil? %>
+						<% if !ENV["PROFILE_LOCATION"].blank? %>
 						  <div class="detail">
 								<span class="icon">
 								  <i class="fa fa-lg fa-location-arrow"></i>
@@ -27,7 +27,7 @@
 								</span>
 						  </div>
 						<% end %>
-						<% if !ENV["PROFILE_EMAIL"].nil? %>
+						<% if !ENV["PROFILE_EMAIL"].blank? %>
 						  <div class="detail">
 								<span class="icon">
 								  <i class="fa fa-lg fa-envelope"></i>
@@ -39,7 +39,7 @@
 								</span>
 						  </div>
 						<% end %>
-						<% if !ENV["SKYPE_USERNAME"].nil? && !ENV["SKYPE_DISPLAY_NAME"].nil? %>
+						<% if !ENV["SKYPE_USERNAME"].blank? && !ENV["SKYPE_DISPLAY_NAME"].blank? %>
 						  <div class="detail">
 								<span class="icon">
 								  <i class="fa fa-lg fa-skype"></i>
@@ -62,19 +62,19 @@
 				  </div>
 				  <hr>
 				  <div class="social-links text-center">
-					  <% if !ENV["LINKEDIN_LINK"].nil? %>
+					  <% if !ENV["LINKEDIN_LINK"].blank? %>
 							<a class="fa fa-linkedin-square fa-2x social-link link-linkedin" href=<%= ENV["LINKEDIN_LINK"] %>></a>
 						<% end %>
-					  <% if !ENV["GITHUB_LINK"].nil? %>
+					  <% if !ENV["GITHUB_LINK"].blank? %>
 					  	<a class="fa fa-github-square fa-2x social-link link-github" href=<%= ENV["GITHUB_LINK"] %>></a>
 						<% end %>
-					  <% if !ENV["GOOGLE_PLUS_LINK"].nil? %>
+					  <% if !ENV["GOOGLE_PLUS_LINK"].blank? %>
 					  	<a class="fa fa-google-plus-square fa-2x social-link link-google-plus" href=<%= ENV["GOOGLE_PLUS_LINK"] %>></a>
 						<% end %>
-					  <% if !ENV["FACEBOOK_LINK"].nil? %>
+					  <% if !ENV["FACEBOOK_LINK"].blank? %>
 					  	<a class="fa fa-facebook-square fa-2x social-link link-facebook" href=<%= ENV["FACEBOOK_LINK"] %>></a>
 						<% end %>
-					  <% if !ENV["TWITTER_LINK"].nil? %>
+					  <% if !ENV["TWITTER_LINK"].blank? %>
 					  	<a class="fa fa-twitter-square fa-2x social-link link-twitter" href=<%= ENV["TWITTER_LINK"] %>></a>
 						<% end %>
 				  </div>
@@ -86,7 +86,7 @@
 					<h4 class="text-uppercase text-bolder">Background</h4>
 					<hr>
 					<div class="background-details">
-						<% if !@about.nil? %>
+						<% if !@about.blank? %>
 						  <div class="detail" id="about">
 								<div class="icon">
 								  <i class="fa fa-lg fa-user"></i>
@@ -102,7 +102,7 @@
 								</div>
 						  </div>
 						<% end %>
-						<% if !@experiences.nil? %>
+						<% if !@experiences.blank? %>
 					  	<div class="detail" id="work-experience">
 							<div class="icon">
 							  <i class="fa fa-lg fa-building"></i>
@@ -122,7 +122,7 @@
 							</div>
 					  </div>
 						<% end %>
-						<% if !@skills.nil? %>
+						<% if !@skills.blank? %>
 							<div class="detail" id="skills">
 						  <div class="icon">
 								<i class="fa fa-lg fa-code"></i>
@@ -144,7 +144,7 @@
 						  </div>
 						</div>
 						<% end %>
-						<% if !@works.nil? %>
+						<% if !@works.blank? %>
 							<div class="detail" id="publications">
 							  <div class="icon">
 									<i class="fa fa-lg fa-book"></i>
@@ -166,7 +166,7 @@
 							  </div>
 							</div>
 						<% end %>
-						<% if !@interests.nil? %>
+						<% if !@interests.blank? %>
 							<div class="detail" id="interests">
 							  <div class="icon">
 									<i class="fa fa-lg fa-heart"></i>
