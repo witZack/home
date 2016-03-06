@@ -4,18 +4,18 @@
 #   Ensure the postgres gem is defined in your Gemfile
 #   gem 'pg'
 #
-# development: &default
-#   adapter: postgresql
-#   encoding: unicode
-#   database: postgres
-#   pool: 5
-#   username: postgres
-#   password:
-#   host: db
-#
-# test:
-#   <<: *default
-#   database: test.postgres
+development: &default
+  adapter: postgresql
+  encoding: unicode
+  database: postgres
+  pool: 5
+  username: postgres
+  password:
+  host: db
+
+test:
+  <<: *default
+  database: test.postgres
 
 # production:
 #   <<: *default
