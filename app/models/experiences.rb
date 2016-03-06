@@ -1,7 +1,6 @@
 require 'date'
 
 class Experiences
-  extend DateTimeHelper
   attr_reader :employer, :employerLink, :jobTitle, :details, :startDate, :endDate
   # Constructor
   # @employerName EmployerName
