@@ -18,7 +18,7 @@ class Profile
   end
 
   def self.fromYaml()
-    yaml = YAML::load(File.open(Rails.root + "app/models/seeds/dev/profile.yaml"))["profile"]
+    yaml = YAML::load(File.open(Rails.root + "/etc/personal/profile.yaml"))["profile"]
     self.new(yaml[:name],
     yaml[:about],
     yaml[:image_link],

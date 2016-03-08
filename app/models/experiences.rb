@@ -24,7 +24,7 @@ class Experiences
   end
 
   def self.fromYaml()
-    yaml = YAML::load(File.open(Rails.root + "app/models/seeds/dev/experiences.yaml"))["experiences"]
+    yaml = YAML::load(File.open(Rails.root + "/etc/personal/experiences.yaml"))["experiences"]
     arr = []
     yaml.each do |item|
       startDate = (item[:start_year].blank? || item[:start_month].blank? ) ? nil : DateTime.new(item[:start_year],item[:start_month])

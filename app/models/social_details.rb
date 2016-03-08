@@ -18,7 +18,7 @@ class SocialDetails
   end
 
   def self.fromYaml()
-    yaml = YAML::load(File.open(Rails.root + "app/models/seeds/dev/social_details.yaml"))["social_details"]
+    yaml = YAML::load(File.open(Rails.root + "/etc/personal/social_details.yaml"))["social_details"]
     self.new(yaml[:facebook],
       yaml[:twitter],
       yaml[:linkedin],
