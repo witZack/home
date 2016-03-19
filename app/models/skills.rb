@@ -9,7 +9,7 @@ class Skills
   end
 
   def self.fromYaml()
-    yaml = YAML::load(File.open(Rails.root + "app/models/seeds/dev/skills.yaml"))["skills"]
+    yaml = YAML::load(File.open(Rails.root + "/etc/personal/skills.yaml"))["skills"]
     arr = []
     yaml.each do |item|
       arr << self.new(item[:title],

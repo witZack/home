@@ -7,7 +7,7 @@ class Interests
   end
 
   def self.fromYaml()
-    yaml = YAML::load(File.open(Rails.root + "app/models/seeds/dev/interests.yaml"))["interests"]
+    yaml = YAML::load(File.open(Rails.root + "/etc/personal/interests.yaml"))["interests"]
     arr = []
     yaml.each do |item|
       arr << self.new(item[:name])

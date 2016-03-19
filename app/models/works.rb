@@ -11,7 +11,7 @@ class Works
   end
 
   def self.fromYaml()
-    yaml = YAML::load(File.open(Rails.root + "app/models/seeds/dev/works.yaml"))["works"]
+    yaml = YAML::load(File.open(Rails.root + "/etc/personal/works.yaml"))["works"]
     arr = []
     yaml.each do |item|
       arr << self.new(item[:name],
