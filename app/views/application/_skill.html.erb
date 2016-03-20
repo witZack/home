@@ -1,0 +1,15 @@
+<div class="skill-level" rel="tooltip" title="" data-placement="left" data-original-title="Master">
+  <div class="skill-progress master"></div>
+</div>
+<div class="skill-info">
+  <strong><%= skill.title %></strong>
+  <% if !skill.branches.blank? %>
+    <div class="space-top labels">
+      <% skill.branches.each do |branch| %>
+        <span class="label label-keyword">
+          <%= branch %>
+        </span>
+      <% end %>
+    </div>
+  <% end %>
+</div>

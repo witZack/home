@@ -1,0 +1,197 @@
+	<div class="container-fluid">
+	  <div class="row main clearfix">
+			<section class="col-md-3 card-wrapper profile-card-wrapper affix">
+			  <div class="card profile-card">
+				  <span class="profile-pic-container">
+					<div class="profile-pic">
+					  <img class="media-object img-circle center-block" alt="Profile Picture"
+							src=<%= @profile.image %>
+							itemprop="image"
+							title="Profile Image">
+					</div>
+					<div class="name-and-profession">
+					  <h3 class="text-center text-bolder name" itemprop="name"><%= @profile.name %></h3>
+					  <h5 class="text-muted text-center" itemprop="jobTitle"><%= @profile.profession %></h5>
+					  <h5 class="text-muted text-center" itemprop="jobTitle"><%= @profile.jobTitle %> </h5>
+					  <h5 class="text-muted text-center" itemprop="jobTitle"><%= @profile.company %> </h5>
+					</div>
+				  </span>
+				  <hr>
+				  <div class="contact-details clearfix">
+						<% if !@profile.location.blank? %>
+						  <div class="detail">
+								<span class="icon">
+								  <i class="fa fa-lg fa-location-arrow"></i>
+								</span>
+								<span class="info">
+								  <%= @profile.location %>
+								</span>
+						  </div>
+						<% end %>
+						<% if !ENV["PROFILE_EMAIL"].blank? %>
+						  <div class="detail">
+								<span class="icon">
+								  <i class="fa fa-lg fa-envelope"></i>
+								</span>
+								<span class="info">
+									<span style="unicode-bidi:bidi-override; direction: rtl;">
+										<a href=<%= "mailto:" + ENV["PROFILE_EMAIL"] %>><%= ENV["PROFILE_EMAIL"].reverse %></a>
+									</span>
+								</span>
+						  </div>
+						<% end %>
+						<% if !@social_details.skype_username.blank? && !@social_details.skype_display_name.blank? %>
+						  <div class="detail">
+								<span class="icon">
+								  <i class="fa fa-lg fa-skype"></i>
+								</span>
+								<span class="info" itemprop="skype">
+								  <a href=<%="skype:" + @social_details.skype_username + "?add&amp;displayname=" + @social_details.skype_display_name %>>
+										<%= @social_details.skype_display_name %>
+									</a>
+								</span>
+						  </div>
+						<% end %>
+						<% if !@profile.languages_spoken.blank? %>
+						  <div class="detail">
+								<span class="icon" title="Languages I speak">
+								  <i class="fa fa-lg fa-language"></i>
+								</span>
+								<span class="info">
+								  <%= @profile.languages_spoken %>
+								</span>
+						  </div>
+						<% end %>
+				  </div>
+				  <hr>
+				  <div class="social-links text-center">
+					  <% if !@social_details.linkedin.blank? %>
+							<a class="fa fa-linkedin-square fa-2x social-link link-linkedin" href=<%= @social_details.linkedin %>></a>
+						<% end %>
+					  <% if !@social_details.github.blank? %>
+					  	<a class="fa fa-github-square fa-2x social-link link-github" href=<%= @social_details.github %>></a>
+						<% end %>
+					  <% if !@social_details.google_plus.blank? %>
+					  	<a class="fa fa-google-plus-square fa-2x social-link link-google-plus" href=<%= @social_details.google_plus %>></a>
+						<% end %>
+					  <% if !@social_details.facebook.blank? %>
+					  	<a class="fa fa-facebook-square fa-2x social-link link-facebook" href=<%= @social_details.facebook %>></a>
+						<% end %>
+					  <% if !@social_details.twitter.blank? %>
+					  	<a class="fa fa-twitter-square fa-2x social-link link-twitter" href=<%= @social_details.twitter %>></a>
+						<% end %>
+				  </div>
+			  </div>
+			</section>
+
+			<section class="col-md-9 card-wrapper pull-right">
+			  <div class="card background-card" style="min-height: 1027px;">
+					<h4 class="text-uppercase text-bolder">Professional</h4>
+					<hr>
+					<div class="background-details">
+						<% if !@profile.about.blank? %>
+						  <div class="detail" id="about">
+								<div class="icon">
+								  <i class="fa fa-lg fa-user"></i>
+								  <span class="mobile-title">About</span>
+								</div>
+								<div class="info">
+								  <h4 class="title text-uppercase">
+									About
+								  </h4>
+								  <div class="content" itemprop="description">
+										<%= @profile.about %>
+								  </div>
+								</div>
+						  </div>
+						<% end %>
+						<% if !@experiences.blank? %>
+					  	<div class="detail" id="work-experience">
+							<div class="icon">
+							  <i class="fa fa-lg fa-building"></i>
+							  <span class="mobile-title">Work Experience</span>
+							</div>
+							<div class="info">
+								<h4 class="title text-uppercase">
+									Work Experience
+								</h4>
+								<ul class="list-unstyled">
+		              <% @experiences.each do |experience| %>
+										<li class="card card-nested clearfix">
+		                  <%= render partial: "experience", object: experience %>
+										</li>
+		              <% end %>
+							  </ul>
+							</div>
+					  </div>
+						<% end %>
+						<% if !@skills.blank? %>
+							<div class="detail" id="skills">
+						  <div class="icon">
+								<i class="fa fa-lg fa-code"></i>
+								<span class="mobile-title">Skills</span>
+						  </div>
+						  <div class="info">
+								<h4 class="title text-uppercase">
+								  Skills
+								</h4>
+								<div class="content">
+								  <ul class="list-unstyled">
+			              <% @skills.each do |skill| %>
+								  		<li class="card card-nested card-skills">
+			                  <%= render partial: "skill", object: skill %>
+										  </li>
+			              <% end %>
+								  </ul>
+								</div>
+						  </div>
+						</div>
+						<% end %>
+						<% if !@works.blank? %>
+							<div class="detail" id="publications">
+							  <div class="icon">
+									<i class="fa fa-lg fa-book"></i>
+									<span class="mobile-title">Professional Works</span>
+							  </div>
+							  <div class="info">
+									<h4 class="title text-uppercase">
+									  Professional Works
+									</h4>
+									<div class="content">
+									  <ul class="list-unstyled">
+				              <% @works.each do |work| %>
+									  		<li class="card card-nested">
+				                  <%= render partial: "work", object: work %>
+											  </li>
+				              <% end %>
+									  </ul>
+									</div>
+							  </div>
+							</div>
+						<% end %>
+						<% if !@interests.blank? %>
+							<div class="detail" id="interests">
+							  <div class="icon">
+									<i class="fa fa-lg fa-heart"></i>
+									<span class="mobile-title">Interests</span>
+							  </div>
+							  <div class="info">
+									<h4 class="title text-uppercase">
+									  Interests
+									</h4>
+									<div class="content">
+									  <ul class="list-unstyled">
+										  <li class="card card-nested">
+												<%= render partial: "interest", object: @interests %>
+										  </li>
+									  </ul>
+									</div>
+							  </div>
+							</div>
+						<% end %>
+				  </div>
+				</div>
+			</section>
+	  </div>
+	</div>
+</body>

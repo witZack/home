@@ -1,0 +1,16 @@
+<div class="content">
+  <p class="clear-margin">
+    <strong>
+      <% if !work.link.nil? %>
+        <a href=<%= work.link %> title=<%= work.name %>>
+          <%= work.name %>
+        </a>
+      <% else %>
+        <%= work.name %>
+      <% end %>
+    </strong>
+  </p>
+  <p class="clear-margin">
+    <%= work.description %>
+  </p>
+</div>
