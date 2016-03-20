@@ -21,18 +21,14 @@
           <% end %>
         </span>
         <i class="fa fa-clock-o">
-          <% if experience.employmentLength > 1 %>
-            <%=experience.employmentLength%> years
-          <% else %>
-            <%=[(experience.employmentLength*12).round,1].max%> months
-          <% end %>
+          <%=experience.employmentLength%>
         </i>
       </small>
     <% end %>
   </p>
   <ul>
     <% experience.details.each do |detail| %>
-      <li>detail</li>
+      <li><%= detail %></li>
     <% end %>
   </ul>
 </div>

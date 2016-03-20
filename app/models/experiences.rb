@@ -20,9 +20,10 @@ class Experiences
   # Calculate length of employment
   def employmentLength
     days = (endDate.nil? ? DateTime.now.to_date : endDate) - startDate
-    (days.round)/365
+    years = (days.round)/365.0
+    years > 1 ? years.round(1).to_s + "\syears" : (years*12).round(0).to_s + "\smonths"
   end
-
+  # Read information from yaml file
   def self.fromYaml()
     yaml = YAML::load(File.open(Rails.root + "/etc/personal/experiences.yaml"))["experiences"]
     arr = []
