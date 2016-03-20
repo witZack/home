@@ -1,6 +1,6 @@
 # personal-site
 A ruby on rails application for a personal site.
-Developed with the idea that anyone should be able to have a quick easy homepage for themselves with some information about how they are and what they do.
+Developed with the idea that anyone should be able to have a quick easy homepage for themselves with some information about who they are and what they do.
 
 ### Bootstrapping
 
