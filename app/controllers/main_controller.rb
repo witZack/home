@@ -5,6 +5,7 @@ class MainController < ApplicationController
     @experiences = Experiences.fromYaml()
     @skills = Skills.fromYaml()
     @interests = Interests.fromYaml()
+    @cultures = Culture.fromYaml()
     @profile = Profile.fromYaml()
     @works = Works.fromYaml()
     @social_details = SocialDetails.fromYaml()

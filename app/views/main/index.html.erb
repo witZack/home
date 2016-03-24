@@ -125,6 +125,28 @@
 							</div>
 					  </div>
 						<% end %>
+						<% if !@works.blank? %>
+							<div class="detail" id="publications">
+							  <div class="icon">
+									<i class="fa fa-lg fa-book"></i>
+									<span class="mobile-title">Professional Works</span>
+							  </div>
+							  <div class="info">
+									<h4 class="title text-uppercase">
+									  Professional Works
+									</h4>
+									<div class="content">
+									  <ul class="list-unstyled">
+				              <% @works.each do |work| %>
+									  		<li class="card card-nested">
+				                  <%= render partial: "work", object: work %>
+											  </li>
+				              <% end %>
+									  </ul>
+									</div>
+							  </div>
+							</div>
+						<% end %>
 						<% if !@skills.blank? %>
 							<div class="detail" id="skills">
 						  <div class="icon">
@@ -147,27 +169,27 @@
 						  </div>
 						</div>
 						<% end %>
-						<% if !@works.blank? %>
-							<div class="detail" id="publications">
-							  <div class="icon">
-									<i class="fa fa-lg fa-book"></i>
-									<span class="mobile-title">Professional Works</span>
-							  </div>
-							  <div class="info">
-									<h4 class="title text-uppercase">
-									  Professional Works
-									</h4>
-									<div class="content">
-									  <ul class="list-unstyled">
-				              <% @works.each do |work| %>
-									  		<li class="card card-nested">
-				                  <%= render partial: "work", object: work %>
-											  </li>
-				              <% end %>
-									  </ul>
-									</div>
-							  </div>
-							</div>
+						<% if !@cultures.blank? %>
+							<div class="detail" id="skills">
+						  <div class="icon">
+								<i class="fa fa-lg fa-globe"></i>
+								<span class="mobile-title">Culture</span>
+						  </div>
+						  <div class="info">
+								<h4 class="title text-uppercase">
+								  Culture
+								</h4>
+								<div class="content">
+								  <ul class="list-unstyled">
+			              <% @cultures.each do |culture| %>
+								  		<li class="card card-nested card-skills">
+			                  <%= render partial: "culture", object: culture %>
+										  </li>
+			              <% end %>
+								  </ul>
+								</div>
+						  </div>
+						</div>
 						<% end %>
 						<% if !@interests.blank? %>
 							<div class="detail" id="interests">

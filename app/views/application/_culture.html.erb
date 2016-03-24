@@ -1,0 +1,15 @@
+<div class="skill-level" rel="tooltip" title="" data-placement="left" data-original-title="Master">
+  <div class="skill-progress master"></div>
+</div>
+<div class="skill-info">
+  <strong><%= culture.area %></strong>
+  <% if !culture.attributes.blank? %>
+    <div class="space-top labels">
+      <% culture.attributes.each do |attr| %>
+        <span class="label label-keyword">
+          <%= attr %>
+        </span>
+      <% end %>
+    </div>
+  <% end %>
+</div>
