@@ -11,9 +11,11 @@ class Skills
   def self.fromYaml()
     yaml = YAML::load(File.open(Rails.root + "/etc/personal/skills.yaml"))["skills"]
     arr = []
-    yaml.each do |item|
-      arr << self.new(item[:title],
-        item[:branches])
+    if !yaml.blank?
+      yaml.each do |item|
+        arr << self.new(item[:title],
+          item[:branches])
+      end
     end
     arr
   end

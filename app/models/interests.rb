@@ -9,8 +9,10 @@ class Interests
   def self.fromYaml()
     yaml = YAML::load(File.open(Rails.root + "/etc/personal/interests.yaml"))["interests"]
     arr = []
-    yaml.each do |item|
-      arr << self.new(item[:name])
+    if !yaml.blank?
+      yaml.each do |item|
+        arr << self.new(item[:name])
+      end
     end
     arr
   end

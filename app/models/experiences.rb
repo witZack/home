@@ -27,15 +27,17 @@ class Experiences
   def self.fromYaml()
     yaml = YAML::load(File.open(Rails.root + "/etc/personal/experiences.yaml"))["experiences"]
     arr = []
-    yaml.each do |item|
-      startDate = (item[:start_year].blank? || item[:start_month].blank? ) ? nil : DateTime.new(item[:start_year],item[:start_month])
-      endDate = (item[:end_year].blank? || item[:end_month].blank? ) ? nil : DateTime.new(item[:end_year],item[:end_month])
-      arr << self.new(item[:employer],
-        item[:employer_link],
-        item[:job_title],
-        item[:details],
-        startDate,
-        endDate)
+    if !yaml.blank?
+      yaml.each do |item|
+        startDate = (item[:start_year].blank? || item[:start_month].blank? ) ? nil : DateTime.new(item[:start_year],item[:start_month])
+        endDate = (item[:end_year].blank? || item[:end_month].blank? ) ? nil : DateTime.new(item[:end_year],item[:end_month])
+        arr << self.new(item[:employer],
+          item[:employer_link],
+          item[:job_title],
+          item[:details],
+          startDate,
+          endDate)
+      end
     end
     arr
   end

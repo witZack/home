@@ -10,9 +10,11 @@ class Culture
   def self.fromYaml()
     yaml = YAML::load(File.open(Rails.root + "/etc/personal/culture.yaml"))["culture"]
     arr = []
-    yaml.each do |item|
-      arr << self.new(item[:area],
-        item[:attributes])
+    if !yaml.blank?
+      yaml.each do |item|
+        arr << self.new(item[:area],
+          item[:attributes])
+      end
     end
     arr
   end

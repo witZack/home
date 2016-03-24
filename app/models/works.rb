@@ -13,10 +13,12 @@ class Works
   def self.fromYaml()
     yaml = YAML::load(File.open(Rails.root + "/etc/personal/works.yaml"))["works"]
     arr = []
-    yaml.each do |item|
-      arr << self.new(item[:name],
-        item[:description],
-        item[:link])
+    if !yaml.blank?
+      yaml.each do |item|
+        arr << self.new(item[:name],
+          item[:description],
+          item[:link])
+      end
     end
     arr
   end
