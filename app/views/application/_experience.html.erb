@@ -1,8 +1,8 @@
 <div class="content">
   <p class="clear-margin relative">
-    <strong><%= experience.jobTitle %></strong>,
-    <% if !experience.employerLink.nil? %>
-      <a href=<%= experience.employerLink %>>
+    <strong><%= experience.title %></strong>,
+    <% if !experience.employer_link.nil? %>
+      <a href=<%= experience.employer_link %>>
         <%= experience.employer %>
       </a>
     <% else %>
@@ -10,12 +10,12 @@
     <% end %>
   </p>
   <p class="text-muted">
-    <% if !experience.startDate.nil? %>
+    <% if !experience.start_date.nil? %>
       <small>
         <span class="space-right">
-          <%= experience.startDate.to_date.strftime("%Y-%m") %> -
-          <% if !experience.endDate.nil? %>
-            <%= experience.endDate.to_date.strftime("%Y-%m") %>
+          <%= experience.start_date.to_date.strftime("%Y-%m") %> -
+          <% if !experience.end_date.nil? %>
+            <%= experience.end_date.to_date.strftime("%Y-%m") %>
           <% else %>
             Present
           <% end %>
@@ -27,8 +27,8 @@
     <% end %>
   </p>
   <ul>
-    <% experience.details.each do |detail| %>
-      <li><%= detail %></li>
+    <% experience.work_details.each do |work_detail| %>
+      <li><%= work_detail.detail %></li>
     <% end %>
   </ul>
 </div>

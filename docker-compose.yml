@@ -2,6 +2,8 @@ version: '2'
 services:
   postgres_db:
     image: postgres
+    volumes:
+      - ./config/database:/docker-entrypoint-initdb.d
     environment:
       - DEBUG=false
       - POSTGRES_DB=personal-site

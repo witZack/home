@@ -3,11 +3,11 @@
 </div>
 <div class="skill-info">
   <strong><%= skill.title %></strong>
-  <% if !skill.branches.blank? %>
+  <% if !skill.disciplines.blank? %>
     <div class="space-top labels">
-      <% skill.branches.each do |branch| %>
+      <% skill.disciplines.split(",").each do |dicipline| %>
         <span class="label label-keyword">
-          <%= branch %>
+          <%= dicipline %>
         </span>
       <% end %>
     </div>

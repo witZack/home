@@ -1,0 +1,4 @@
+#!/bin/bash
+psql -d $POSTGRES_DB -U $POSTGRES_USER <<- EOSQL
+   CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+EOSQL

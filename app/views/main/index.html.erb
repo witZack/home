@@ -5,26 +5,27 @@
 				  <span class="profile-pic-container">
 					<div class="profile-pic">
 					  <img class="media-object img-circle center-block" alt="Profile Picture"
-							src=<%= @profile.image %>
+							src=<%= @user_profile.main_image_link %>
 							itemprop="image"
-							title="Profile Image">
+							title="User Main Image">
 					</div>
 					<div class="name-and-profession">
-					  <h3 class="text-center text-bolder name" itemprop="name"><%= @profile.name %></h3>
-					  <h5 class="text-muted text-center" itemprop="jobTitle"><%= @profile.profession %></h5>
-					  <h5 class="text-muted text-center" itemprop="jobTitle"><%= @profile.jobTitle %> </h5>
-					  <h5 class="text-muted text-center" itemprop="jobTitle"><%= @profile.company %> </h5>
+					  <h3 class="text-center text-bolder name" itemprop="name"><%= @user.first_name %> <%= @user.last_name %></h3>
+						<% if !@user_experiences.blank? && @user_experiences.first.end_date.blank? %>
+						  <h5 class="text-muted text-center" itemprop="jobTitle"><%= @user_experiences.first.title %> </h5>
+						  <h5 class="text-muted text-center" itemprop="jobTitle"><%= @user_experiences.first.employer %> </h5>
+						<% end %>
 					</div>
 				  </span>
 				  <hr>
 				  <div class="contact-details clearfix">
-						<% if !@profile.location.blank? %>
+						<% if !@user.location.blank? %>
 						  <div class="detail">
 								<span class="icon">
 								  <i class="fa fa-lg fa-location-arrow"></i>
 								</span>
 								<span class="info">
-								  <%= @profile.location %>
+								  <%= @user.location %>
 								</span>
 						  </div>
 						<% end %>
@@ -52,7 +53,7 @@
 								</span>
 						  </div>
 						<% end %>
-						<% if !@profile.languages_spoken.blank? %>
+						<% if false %>
 						  <div class="detail">
 								<span class="icon" title="Languages I speak">
 								  <i class="fa fa-lg fa-language"></i>
@@ -89,7 +90,7 @@
 					<h4 class="text-uppercase text-bolder">Professional</h4>
 					<hr>
 					<div class="background-details">
-						<% if !@profile.about.blank? %>
+						<% if !@user_profile.about.blank? %>
 						  <div class="detail" id="about">
 								<div class="icon">
 								  <i class="fa fa-lg fa-user"></i>
@@ -100,12 +101,12 @@
 									About
 								  </h4>
 								  <div class="content" itemprop="description">
-										<%= @profile.about %>
+										<%= @user_profile.about %>
 								  </div>
 								</div>
 						  </div>
 						<% end %>
-						<% if !@experiences.blank? %>
+						<% if !@user_experiences.blank? %>
 					  	<div class="detail" id="work-experience">
 							<div class="icon">
 							  <i class="fa fa-lg fa-building"></i>
@@ -116,7 +117,7 @@
 									Work Experience
 								</h4>
 								<ul class="list-unstyled">
-		              <% @experiences.each do |experience| %>
+		              <% @user_experiences.each do |experience| %>
 										<li class="card card-nested clearfix">
 		                  <%= render partial: "experience", object: experience %>
 										</li>
@@ -147,7 +148,7 @@
 							  </div>
 							</div>
 						<% end %>
-						<% if !@skills.blank? %>
+						<% if !@user_skills.blank? %>
 							<div class="detail" id="skills">
 						  <div class="icon">
 								<i class="fa fa-lg fa-code"></i>
@@ -159,7 +160,7 @@
 								</h4>
 								<div class="content">
 								  <ul class="list-unstyled">
-			              <% @skills.each do |skill| %>
+			              <% @user_skills.each do |skill| %>
 								  		<li class="card card-nested card-skills">
 			                  <%= render partial: "skill", object: skill %>
 										  </li>
