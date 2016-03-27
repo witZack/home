@@ -7,11 +7,20 @@
 development: &default
   adapter: postgresql
   encoding: unicode
-  database: postgres
+  database: personal-site
   pool: 5
-  username: postgres
-  password:
-  host: db
+  username: dev
+  password: dev
+  host: postgres_db
+
+production: &default
+  adapter: postgresql
+  encoding: unicode
+  database: personal-site
+  pool: 5
+  username: secret
+  password: secret
+  host: postgres_db
 
 test:
   <<: *default

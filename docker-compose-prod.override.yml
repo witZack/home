@@ -1,0 +1,14 @@
+version: '2'
+services:
+  postgres_db:
+    environment:
+      - POSTGRES_DB=personal-site
+      - POSTGRES_USER=secret
+      - POSTGRES_PASSWORD=secret
+  app:
+    command: bundle exec rails s -p 80 -b '0.0.0.0'
+    ports:
+      - "80:80"
+    environment:
+      # RAILS ENVIRONMENT
+      - RAILS_ENV=production
